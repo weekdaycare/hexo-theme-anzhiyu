@@ -19,6 +19,7 @@
   --anzhiyu-orange: #e38100;
   --anzhiyu-blue-hover: #5390e6;
   --anzhiyu-border-radius: 8px;
+  --anzhiyu-code-stress: #ff7043;
   --anzhiyu-main: var(--anzhiyu-theme);
   --anzhiyu-main-op: var(--anzhiyu-theme-op);
   --anzhiyu-shadow-theme: 0 8px 12px -3px var(--anzhiyu-theme-op);
@@ -32,10 +33,9 @@
   --anzhiyu-shadow-border: 0 8px 16px -4px #2c2d300c;
   --anzhiyu-shadow-blackdeep: 0 2px 16px -3px rgba(0, 0, 0, 0.15);
   --anzhiyu-logo-color: linear-gradient(215deg, #4584ff 30%, #ff7676 70%);
-  --anzhiyu-code-stress: #3477f6;
   --style-border: 1px solid var(--anzhiyu-card-border);
-  --anzhiyu-blue-main: #3b70fc;
-  --style-border-hover: 1px solid var(--anzhiyu-main);
+  --anzhiyu-blue-main: #ff7043;
+  --style-border-hover: 1px solid var(--anzhiyu-theme);
   --style-border-dashed: 1px dashed var(--anzhiyu-theme-op);
   --style-border-avatar: 4px solid var(--anzhiyu-background);
   --style-border-always: 1px solid var(--anzhiyu-card-border);
@@ -50,8 +50,8 @@
   --anzhiyu-meta-theme-color: #f7f9fe;
   --anzhiyu-theme-op-deep: #4259efdd;
   --global-bg: #f7f9fe;
-  --anzhiyu-theme: #3b70fc;
-  --anzhiyu-theme-deep: #1856fb;
+  --anzhiyu-theme: #F4511E;
+  --anzhiyu-theme-deep: #f44336;
   --anzhiyu-theme-op: #4259ef23;
   --anzhiyu-blue: #5ca1ff;
   --anzhiyu-blue-tint: rgba(92, 161, 255, 0.1);
@@ -63,7 +63,7 @@
   --anzhiyu-reverse: #000;
   --anzhiyu-maskbg: rgba(255, 255, 255, 0.6);
   --anzhiyu-maskbgdeep: rgba(255, 255, 255, 0.85);
-  --anzhiyu-hovertext: var(--anzhiyu-theme);
+  --anzhiyu-hovertext: #616161;
   --anzhiyu-ahoverbg: #f7f7fa;
   --anzhiyu-lighttext: var(--anzhiyu-main);
   --anzhiyu-secondtext: rgba(60, 60, 67, 0.6);
@@ -86,8 +86,8 @@
   --anzhiyu-blue-tint: rgba(92, 161, 255, 0.1);
   --anzhiyu-theme-op-deep: #0084ffdd;
   --global-bg: #18171d;
-  --anzhiyu-theme: #0084ff;
-  --anzhiyu-theme-deep: #0076e5;
+  --anzhiyu-theme: #F4511E;
+  --anzhiyu-theme-deep: #f44336;
   --anzhiyu-theme-op: #0084ff23;
   --anzhiyu-blue: #0084ff;
   --anzhiyu-red: #ff3842;
@@ -98,7 +98,7 @@
   --anzhiyu-reverse: #fff;
   --anzhiyu-maskbg: rgba(0, 0, 0, 0.6);
   --anzhiyu-maskbgdeep: rgba(0, 0, 0, 0.85);
-  --anzhiyu-hovertext: #0a84ff;
+  --anzhiyu-hovertext: #616161;
   --anzhiyu-ahoverbg: #fff;
   --anzhiyu-lighttext: #f2b94b;
   --anzhiyu-secondtext: #a1a2b8;

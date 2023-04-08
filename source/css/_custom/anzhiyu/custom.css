@@ -131,7 +131,7 @@ body::-webkit-scrollbar {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #3b70fc;
+  background-color: #F5592C;
   border-radius: 2em;
 }
 
@@ -141,7 +141,7 @@ body::-webkit-scrollbar {
 
 ::-moz-selection {
   color: #fff;
-  background-color: #3b70fc;
+  background-color: #F5592C;
 }
 
 /* md网站下划线 */
