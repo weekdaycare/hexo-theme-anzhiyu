@@ -6,14 +6,17 @@
   box-shadow: var(--anzhiyu-shadow-border);
   position: relative;
   overflow: hidden;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .shapes {
   position: relative;
   height: 315px;
   width: 100%;
-  background: #2128bd;
+  background: #F4511E;
   overflow: hidden;
 }
 
@@ -86,18 +89,26 @@
 
 .cursor {
   position: absolute;
-  background: #2128bd;
+  background: #F4511E;
   width: 20px;
   height: 20px;
   margin: -10px 0 0 -10px;
   border-radius: 50%;
   will-change: transform;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   pointer-events: none;
   z-index: 3;
 }
 
+::-moz-selection {
+  color: #fff;
+  background: #f4630a;
+}
+
 ::selection {
   color: #fff;
-  background: #2128bd;
+  background: #f4630a;
 }
