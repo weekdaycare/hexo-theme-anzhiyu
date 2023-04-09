@@ -36,9 +36,9 @@ nav:
           icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/05/6315ec9737ac4.png
     - title: 项目
       item:
-        - name: 德信官网
-          link: http://blgou.net/#/main/home
-          icon: https://img02.anzhiy.cn/adminuploads/1/2022/09/15/6322cd942dbd9.png
+        - name: 安知鱼云盘
+          link: https://cloud.anzhiy.cn/
+          icon: https://img02.anzhiy.cn/adminuploads/1/2022/04/27/6268e7d9de532.png
 
 # Code Blocks (代码相关)
 # --------------------------------------
@@ -333,14 +333,10 @@ valine:
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
 waline:
-  serverURL: https://waline-api-xxxx.vercel.app/ # Waline server address url
+  serverURL: # Waline server address url
+  bg: # waline background
   pageview: false
-  avatar: mp # gravatar style https://zh-tw.gravatar.com/site/implement/images/#default-image
-  emojiCDN: //i0.hdslb.com/bfs/emote/ # emoji CDN
-  bg: /img/comment_bg.png # waline background
-  visitor: false
   option:
-    - placeholder: 今天应该会收到少佐的信叭<br>生活明朗，万物可爱
 
 # Twikoo
 # https://github.com/imaegoo/twikoo
@@ -503,6 +499,12 @@ theme_color:
   scrollbar_color: "#3b70fc"
   meta_theme_color_light: "#f7f9fe"
   meta_theme_color_dark: "#18171d"
+
+# 表格隔行变色
+table_interlaced_discoloration: false
+
+# 首页双栏显示
+article_double_row: false
 
 # The top_img settings of home page
 # default: top img - full screen, site info - middle (默认top_img全屏，site_info在中间)
@@ -877,10 +879,8 @@ css_prefix: true
 
 # envelope_comment
 # see https://akilar.top/posts/e2d3c450/
-# envelope_comment
-# see https://akilar.top/posts/e2d3c450/
 envelope_comment:
-  enable: true #控制开关
+  enable: false #控制开关
   custom_pic:
     cover: https://npm.elemecdn.com/hexo-butterfly-envelope/lib/violet.jpg #信笺头部图片
     line: https://npm.elemecdn.com/hexo-butterfly-envelope/lib/line.png #信笺底部图片
