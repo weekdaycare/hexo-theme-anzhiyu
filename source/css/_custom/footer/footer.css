@@ -1,28 +1,40 @@
-[data-theme="light"] #footer-wrap {
-  color: var(--font-color);
-}
-#footer-wrap .fas.fa-heartbeat {
+#footer-wrap {
+  padding: 1rem;
+  color: var(--anzhiyu-fontcolor);
+  background: var(--anzhiyu-secondbg);
+  display: flex;
+  overflow: hidden;
+  z-index: 1002;
   transition: 0.3s;
-  animation: heartbeat-bounce 2s ease-in-out infinite;
 }
-@keyframes heartbeat-bounce {
-  0%,
-  100% {
-    transform: scale(1);
-  }
 
-  10%,
-  30% {
-    transform: scale(0.9);
-  }
-  20%,
-  40%,
-  60%,
-  80% {
-    transform: scale(1.1);
-  }
-  50%,
-  70% {
-    transform: scale(1.1);
-  }
+#footer-wrap .footer-wrap-links {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  line-height: normal;
+}
+
+#footer-wrap .footer-wrap-link {
+  margin-right: 1rem;
+  color: var(--anzhiyu-fontcolor);
+  font-size: 1rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+#footer-wrap .footer-wrap-link:hover {
+  color: var(--anzhiyu-theme);
+}
+
+#footer-wrap>div>div.footer-wrap-left>span {
+  margin-right: 1rem;
+}
+
+#footer-wrap .footer-wrap-right a:hover {
+  color: var(--anzhiyu-lighttext);
 }
