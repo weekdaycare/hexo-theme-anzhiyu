@@ -34,10 +34,6 @@ div
   //- 随机文章
   script(async src="/anzhiyu/random.js")
 
-  //- 页脚计时器
-  if theme.footer.runtime.enable
-    != partial("includes/third-party/runtime/runtime-js.pug", {}, { cache: true })
-
   //- search
   if theme.algolia_search.enable
     script(src=url_for(theme.asset.algolia_search_v4))
@@ -69,7 +65,7 @@ div
       != partial("includes/third-party/newest-comments/index", {}, { cache: true })
   //- 气泡效果
   if theme.bubble.enable
-    script(async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js")
+    script(async data-pjax src="https://npm.onmicrosoft.cn/anzhiyu-theme-static@1.0.1/bubble/bubble.js")
   if theme.visitorMail.enable
     - const mail = theme.visitorMail.mail
     script.
@@ -138,23 +134,23 @@ div
         const nowTime = new Date().getHours();
         let greetings = "";
         if (0 <= nowTime && nowTime <= 5) {
-          greetings = "晚安😴"
+          greetings = "晚安, 祝好梦😴"
         } else if (6 <= nowTime && nowTime < 10) {
-          greetings = "早上好鸭👋, 祝你一天好心情！"
+          greetings = "早上好鸭👋"
         } else if (10 === nowTime) {
-          greetings = "上午好👋, 状态很好，鼓励一下～"
+          greetings = "上午好👋, 几点了还睡"
         } else if (11 === nowTime) {
-          greetings = "11点多啦, 在坚持一下就吃饭啦～"
+          greetings = "11点多啦, 摸摸鱼就吃饭啦～"
         } else if (12 <= nowTime && nowTime < 14) {
-          greetings = "午安👋, 宝贝"
+          greetings = "午安👋, 先睡个午觉"
         } else if (14 <= nowTime && nowTime < 18) {
-          greetings = "下午好👋, 继续加油喔。"
+          greetings = "下午好👋, 继续摸鱼"
         } else if (18 <= nowTime && nowTime < 19) {
-          greetings = "🌈充实的一天辛苦啦！"
+          greetings = "🐟摸鱼的一天辛苦啦！"
         } else if (19 === nowTime) {
-          greetings = "19点喽, 奖励一顿丰盛的大餐吧。"
+          greetings = "晚饭时间到, 干饭！"
         } else if (20 <= nowTime && nowTime <= 24) {
-          greetings = "晚上好👋, 在属于自己的时间好好放松😌~"
+          greetings = "晚上好👋, 开黑？"
         } else {
           greetings = "晚上好👋"
         }

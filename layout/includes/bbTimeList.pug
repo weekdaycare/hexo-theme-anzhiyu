@@ -1,7 +1,6 @@
 if site.data.essay
   #bbTimeList.bbTimeList.container
-      svg.icon.bber-logo.iconfont.icon-chrome(onclick=`pjax.loadUrl("/essay/")`,title="即刻短文", aria-hidden="true")
-        use(xlink:href="#icon-chrome")
+      i.icon.bber-logo.fas.fa-quote-left(onclick=`pjax.loadUrl("/essay/")`,title="即刻短文" aria-hidden="true")
       #bbtalk.swiper-container.swiper-no-swiping.essay_bar_swiper_container(tabindex="-1")
         #bber-talk.swiper-wrapper(onclick=`pjax.loadUrl("/essay/")`)
           each i in site.data.essay
