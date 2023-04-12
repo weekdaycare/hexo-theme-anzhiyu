@@ -8,6 +8,6 @@ hexo.extend.generator.register('random', function (locals) {
     path: config.path || 'anzhiyu/random.js',
     data: `var posts=${JSON.stringify(
       posts
-    )};function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};`,
+    )};function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)],"_self");};`,
   };
-})
+});

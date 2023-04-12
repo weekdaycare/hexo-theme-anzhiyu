@@ -1,7 +1,7 @@
 /* 404页面 */
 #error-wrap {
   position: absolute;
-  top: 40%;
+  top: 50%;
   right: 0;
   left: 0;
   margin: 0 auto;
@@ -29,7 +29,7 @@
   height: 100%;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
-  background-color: #3b70fc;
+  background-color: var(--btn-bg);
   background-position: center;
   background-size: cover;
 }
@@ -59,61 +59,3 @@
   color: var(--btn-color);
   border-radius: 10px;
 }
-
-#body-wrap.error .aside-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  bottom: 0px;
-  position: absolute;
-  padding: 1rem;
-  width: 100%;
-  overflow: scroll;
-}
-
-#body-wrap.error .aside-list .aside-list-group {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#body-wrap.error .aside-list .aside-list-item {
-  padding: 0.5rem;
-}
-
-#body-wrap.error .aside-list .aside-list-item img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-#body-wrap.error .aside-list .aside-list-item .thumbnail {
-  overflow: hidden;
-  width: 230px;
-  height: 143px;
-  background: var(--anzhiyu-card-bg);
-  display: flex;
-}
-
-#body-wrap.error .aside-list .aside-list-item .content .title {
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  line-height: 1.5;
-  justify-content: center;
-  align-items: flex-end;
-  align-content: center;
-  padding-top: 0.5rem;
-  color: var(--anzhiyu-fontcolor);
-}
-
-#body-wrap.error .aside-list .aside-list-item .content .title:hover {
-  color: var(--anzhiyu-main);
-}
-
-/* #body-wrap.error .aside-list .aside-list-item .content time {
-  display: none;
-} */
