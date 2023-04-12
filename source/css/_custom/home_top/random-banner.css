@@ -16,8 +16,12 @@
   box-shadow: var(--anzhiyu-shadow-border);
   transition: 0.3s;
   clip-path: inset(0 0 0 0 round 12px);
+  animation: slide-in 0.6s 0.1s backwards;
 }
 
+#random-hover i {
+  font-size: 60px;
+}
 #random-hover {
   position: absolute;
   opacity: 0;
@@ -38,27 +42,6 @@
   transition: 0.3s;
   background-size: 200%;
   cursor: pointer;
-}
-.banners-title {
-  top: 2.9rem;
-  left: 3rem;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-}
-.banners-title-big {
-  font-size: 36px;
-  line-height: 1;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.banners-title-small {
-  font-size: 12px;
-  line-height: 1;
-  color: var(--anzhiyu-secondtext);
-  margin-top: 8px;
-  margin-bottom: 0.5rem;
 }
 
 @media screen and (max-width: 1024px) {
