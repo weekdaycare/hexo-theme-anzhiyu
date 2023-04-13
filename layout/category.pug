@@ -5,7 +5,6 @@ block content
     include ./includes/mixins/post-ui.pug
     #recent-posts.recent-posts.category_ui
       +postUI
-      include includes/pagination.pug
   else
     include ./includes/mixins/article-sort.pug
     #category
@@ -18,4 +17,3 @@ block content
         a.catalog-more(href="/categories/")!= '更多'
       .article-sort-title= _p('page.category') + ' - ' + page.category
       +articleSort(page.posts, page.current)
-      include includes/pagination.pug

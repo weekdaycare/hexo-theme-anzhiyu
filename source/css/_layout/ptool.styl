@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
-    
+
 .share-link
   margin-left: 0.5rem;
   display: flex;
@@ -35,7 +35,26 @@
       opacity: 1;
       transform: translateY(0);
 
+  .share-pagination
+    background: var(--anzhiyu-card-bg);
+    border: var(--style-border);
+    color: var(--anzhiyu-fontcolor);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 95px;
+    height: 40px;
+    margin-left: 0.5rem
+    &:hover
+      background: var(--anzhiyu-theme);
+      border-color: var(--anzhiyu-theme);
+      color: var(--anzhiyu-white);
+      transition: 0.3s;
+      box-shadow: var(--anzhiyu-shadow-blue);
 
+    i
+      line-height: 38px;
+      font-size: 1.1rem;
   .share-qrcode
     display: flex;
     justify-content: center;
@@ -87,8 +106,3 @@
       .reward-dec 
         font-size: 0.6rem;
       
-
-
-
-
-
