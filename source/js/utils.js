@@ -1052,6 +1052,22 @@ const anzhiyu = {
     }
     return isMobile;
   },
+
+  // 创建二维码
+  qrcodeCreate: function () {
+    if (document.getElementById("qrcode")) {
+      document.getElementById("qrcode").innerHTML = "";
+      var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: window.location.href,
+        width: 250,
+        height: 250,
+        colorDark: "#000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+    }
+  },
+
   // 判断是否在el内
   isInViewPortOfOne: function (el) {
     if (!el) return;
@@ -1060,5 +1076,15 @@ const anzhiyu = {
     const scrollTop = document.documentElement.scrollTop;
     const top = offsetTop - scrollTop;
     return top <= viewPortHeight;
+  },
+  //添加赞赏蒙版
+  addRewardMask: function () {
+    document.querySelector(".reward-main").style.display = "flex";
+    document.getElementById("quit-box").style.display = "flex";
+  },
+  // 移除赞赏蒙版
+  removeRewardMask: function () {
+    document.querySelector(".reward-main").style.display = "none";
+    document.getElementById("quit-box").style.display = "none";
   },
 };

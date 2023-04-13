@@ -82,6 +82,8 @@ div
   script(async data-pjax src=url_for(theme.asset.categoryBar))
   //- 即刻依赖waterfall
   script(async data-pjax src=url_for(theme.asset.waterfall))
+  //- 文章二维码
+  script(src='https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js')
   //- 右键菜单
   != partial("includes/anzhiyu/rightmenu-js.pug", {}, { cache: true })
   include ./anzhiyu/anzhiyu-js.pug
@@ -94,9 +96,7 @@ div
       LA.init({id: "#{ck}", ck: "#{ck}"});
       new LingQue.Monitor().init({id: "#{theme.LA.LingQueMonitorID}", sendSuspicious:true});
   //- iconfont依赖
-  link(rel="stylesheet" href=url_for(theme.asset.iconfont_css))
-  if (theme.icons && theme.icons.iconfont_multicolor_js)
-    script(async src=url_for(theme.asset.iconfont_js))
+  link(rel="stylesheet" href=url_for(theme.asset.ali_iconfont_css))
   if (theme.icons && theme.icons.ali_iconfont_js)
     script(async src=url_for(theme.icons.ali_iconfont_js))
 
@@ -118,7 +118,7 @@ div
   if theme.busuanzi.site_uv || theme.busuanzi.site_pv || theme.busuanzi.page_pv
     script(async data-pjax src= theme.asset.busuanzi || '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js')
 
-  if is_current("/")
+  if is_current("/") && theme.greetingBox.enable
     #greetingBox 
     script.
       (()=>{
