@@ -114,10 +114,13 @@ hr
       z-index: 1
       color: var(--hr-before-color)
       content: $hr-icon
-      font-size: 20px
+      font-size: 16px
       line-height: 1
       transition: all 1s ease-in-out
-      @extend .fontawesomeIcon
+      if hexo-config('icons.fontawesome')
+        @extend .fontawesomeIcon
+      else
+        @extend .anzhiyufont
 
 .table-wrap
   overflow-x: scroll
