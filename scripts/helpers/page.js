@@ -20,6 +20,33 @@ hexo.extend.helper.register("page_description", function () {
   }
 });
 
+hexo.extend.helper.register("get_page_fill_description", function () {
+  const { config, page } = this;
+  let description = page.description || page.content || page.title || config.description;
+
+  if (description) {
+    // 使用正则表达式匹配 h1-h6 标签中的文本内容
+    const regex = /<h[1-6][^>]*>(.*?)<\/h[1-6]>/g;
+    const headings = [];
+    let match;
+    while ((match = regex.exec(description))) {
+      headings.push(match[0]);
+    }
+
+    const contents = headings.map(heading => {
+      // 去掉 a 标签及其内容
+      const text = heading.replace(/<a[^>]*>.*?<\/a>/g, "");
+      return text.replace(/<\/?[^>]+>/g, "");
+    });
+
+    description = escapeHTML(stripHTML(description).trim())
+      .replace(/\n/g, " ")
+      .replace(/[^\u4e00-\u9fa5]/gi, "");
+
+    return contents.join(", ") + description;
+  }
+});
+
 hexo.extend.helper.register("cloudTags", function (options = {}) {
   const env = this;
   let source = options.source;
