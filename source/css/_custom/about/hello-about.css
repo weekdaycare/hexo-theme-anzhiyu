@@ -102,13 +102,3 @@
   pointer-events: none;
   z-index: 3;
 }
-
-::-moz-selection {
-  color: #fff;
-  background: #f4630a;
-}
-
-::selection {
-  color: #fff;
-  background: #f4630a;
-}
