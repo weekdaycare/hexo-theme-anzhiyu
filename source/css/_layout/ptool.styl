@@ -10,19 +10,19 @@
     display: flex;
     text-overflow: ellipsis;
     flex-wrap: wrap;
-    margin-bottom: 0.5rem;
-    +maxWidth768()
+    align-items: center;
+    +maxWidth360()
       margin-top: 1rem;
       justify-content: center;
       width: 100%;
       > div
         margin: 8px;
   .post-tools-right
+    overflow: scroll;
+    overflow-x: overlay;
     padding-right: 0px;
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
-    width 100%
     
 .share-link
   margin-left: 0.5rem;
