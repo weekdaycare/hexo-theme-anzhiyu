@@ -10,13 +10,26 @@
 
 .fontbold
   font-weight: bold
-.fontawesomeIcon
-  display: inline-block
-  font-weight: 600
-  font-family: 'Font Awesome 6 Free'
-  text-rendering: auto
-  -webkit-font-smoothing: antialiased
 
+.anzhiyu-icon-spinner
+  margin: 0
+  width: 16px;
+  line-height: 16px;
+  height: 16px;
+if hexo-config('icons.fontawesome')
+  .fontawesomeIcon
+    display: inline-block
+    font-weight: 600
+    font-family: 'Font Awesome 6 Free'
+    text-rendering: auto
+    -webkit-font-smoothing: antialiased
+
+.anzhiyufont
+  font-family: "anzhiyufont";
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 // card hover
 .cardHover
   border-radius: 8px
@@ -137,6 +150,7 @@ if hexo-config('enter_transitions')
   animation: scroll-down-effect 1.5s infinite
 
 .anzhiyu-spin
+  transform-origin: 50% 50%;
   animation-name: anzhiyu-spin;
   animation-duration: var(--anzhiyu-animation-duration,2s);
   animation-iteration-count: var(--anzhiyu-animation-iteration-count,infinite);

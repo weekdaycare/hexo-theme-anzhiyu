@@ -1,30 +1,8 @@
 beautify()
   headStyle(fontsize)
-    padding-left: unit(fontsize + 12, 'px')
-
     &:before
       margin-left: unit((-(fontsize + 6)), 'px')
       font-size: unit(fontsize, 'px')
-
-    &:hover
-      padding-left: unit(fontsize + 18, 'px')
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6
-    transition: all .2s ease-out
-
-    &:before
-      position: absolute
-      top: calc(50% - 7px)
-      color: $title-prefix-icon-color
-      content: $title-prefix-icon
-      line-height: 1
-      transition: all .2s ease-out
-      @extend .fontawesomeIcon
 
     &:hover
       &:before
@@ -66,9 +44,29 @@ beautify()
   ul > li
     list-style-type: circle
 
+blockquote {
+  border: var(--style-border-always);
+  background-color: var(--anzhiyu-secondbg);
+  color: var(--anzhiyu-secondtext);
+  border-radius: 8px;
+  margin: 1rem 0;
+  padding: 0.5rem 0.8rem;
+}
+
 #article-container
   word-wrap: break-word
   overflow-wrap: break-word
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+    .post-content
+      line-height: 1.6;
+      border-top: 1px dashed var(--anzhiyu-theme-op);
+      padding-top: 1.5rem;
+      padding-left: 0;
 
   a
     color: $theme-link-color
@@ -102,21 +100,62 @@ beautify()
     font-size: .9em
     font-family: Monaco, 'Ubuntu Mono', monospace
     line-height: 1em
-
-  if hexo-config('anchor')
-    a.headerlink
-      &:after
+  h1
+    .headerlink
+      float: right;
+      opacity: 0.08;
+      position: relative;
+      padding: 0px;
+      border: none;
+      line-height: 1;
+      font-size: 2rem;
+      border-radius: 8px !important;
+      text-decoration: none;
+      font-weight: 700;
+      &::before
+        font-size: 2rem;
+  h2
+    .headerlink
+      float: right;
+      opacity: 0.08;
+      position: relative;
+      padding: 0px;
+      border: none;
+      line-height: 1;
+      font-size: 1.8rem;
+      border-radius: 8px !important;
+      text-decoration: none;
+      font-weight: 700;
+      &::before
+        font-size: 1.8rem;
+  h3,h4,h5,h6
+    .headerlink
+      float: right;
+      opacity: 0.08;
+      position: relative;
+      padding: 0px;
+      border: none;
+      line-height: 1;
+      font-size: 1.3rem;
+      border-radius: 8px !important;
+      text-decoration: none;
+      font-weight: 700;
+      &::before
+        font-size: 1.3rem;
+  a.headerlink
+    &::before
+      if hexo-config('icons.fontawesome')
         @extend .fontawesomeIcon
-        float: right
-        color: var(--headline-presudo)
-        content: '\f0c1'
-        font-size: .95em
-        opacity: 0
-        transition: all .3s
+      else
+        @extend .anzhiyufont
+      content: '\f0c1'
+      float: right
+      color: var(--headline-presudo)
+      transition: all .3s
 
-      &:hover
-        &:after
-          color: var(--pseudo-hover)
+    &:hover
+      &:after
+        color: var(--pseudo-hover)
 
     h1,
     h2,
@@ -156,20 +195,24 @@ beautify()
     display: flex
     align-items: center;
     justify-content: space-between;
+    width: 100%;
     .post-meta
       &__box
         display: flex
         flex-direction: column;
+        width: 100%;
         
         &__tag-list,&__category-list
           display: flex
+          width: 100%;
+          flex-wrap: wrap;
 
         &__tags,&__categoryes
           display: flex
           align-items: center
           justify-content: center
           margin: 4px 8px 4px 0
-          padding: 0 12px
+          padding: 4px 12px
           width: fit-content
           border-radius: 8px
           font-size: .85em
@@ -203,6 +246,8 @@ beautify()
     position: relative;
     margin: 2rem 0px 0.5rem;
     border-radius: 12px;
+    +maxWidth768()
+      margin: 0
     a.link,.post-copyright__notice a
       font-weight: 500;
       border-bottom: solid 2px var(--anzhiyu-lighttext);
@@ -234,6 +279,10 @@ beautify()
       top: -71px;
       right: -20px;
       font-size: 8.3em;
+      z-index: -1;
+      @media screen and (min-width: 1365px)
+        z-index: 0;
+        
 
     &:hover
       box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5)
@@ -287,13 +336,153 @@ beautify()
       border-left: 5px solid $noticeOutdate-border
 
       &:before
-        @extend .fontawesomeIcon
+        if hexo-config('icons.fontawesome')
+          @extend .fontawesomeIcon
+          content: '\f071'
+        else
+          @extend .anzhiyufont
+          content: '\e66f'
         position: absolute
         top: 50%
         left: .9em
         color: $noticeOutdate-border
-        content: '\f071'
         transform: translateY(-50%)
 
   .ads-wrap
     margin: 40px 0
+
+  #content-inner.layout #article-container
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+      padding-left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+.post-ai-description
+  background: var(--anzhiyu-secondbg);
+  border-radius: 12px;
+  padding: 12px 16px;
+  line-height: 1.3;
+  border: var(--style-border-always);
+  margin-bottom: 10px;
+
+.ai-title
+  display: flex;
+  color: var(--font-color);
+  border-radius: 8px;
+  align-items: center;
+  padding: 0 5px;
+  i
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 20px;
+  .anzhiyufont.anzhiyu-icon-arrow-rotate-right
+    font-size: 14px;
+    margin-left: 4px
+    cursor pointer
+
+  .ai-title-text
+    font-weight: bold;
+    margin-left: 8px;
+
+#ai-tag
+  font-size: 12px;
+  background-color: var(--anzhiyu-lighttext);
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  margin-left: auto;
+  line-height: 1;
+  padding: 4px 5px;
+  cursor pointer
+#ai-Toggle 
+  font-size: 12px;
+  background: var(--anzhiyu-lighttext);
+  color: var(--anzhiyu-card-bg);
+  padding: 4px;
+  border-radius: 4px;
+  margin-left: 6px;
+  transform: scale(0.8);
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+  &:hover
+    background: var(--anzhiyu-fontcolor);
+    color: var(--anzhiyu-card-bg);
+
+
+#go-tianli-blog
+  display: none
+.ai-explanation
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: var(--anzhiyu-card-bg);
+  border-radius: 8px;
+  border: var(--style-border-always);
+  font-size: 15px;
+  line-height: 1.4;
+
+.ai-cursor
+  display: inline-block;
+  width: 7px;
+  background: #333;
+  height: 16px;
+  margin-bottom: -2px;
+  opacity: 0.95;
+  margin-left: 3px;
+  transition: all 0.3s;
+
+[data-theme="dark"] .ai-cursor
+  background: rgb(255, 255, 255, 0.9);
+
+.ai-btn-box
+  font-size: 15.5px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+.ai-btn-item
+  padding: 5px 10px;
+  margin: 10px 16px 0px 5px;
+  width: fit-content;
+  line-height: 1;
+  background: rgba(48, 52, 63, 0.75);
+  color: #fff;
+  border-radius: 6px;
+  user-select: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  &:hover
+    background: var(--anzhiyu-theme);
+
+.ai-recommend
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .ai-recommend-item
+    width: calc(50% - 20px);
+    margin: 10px;
+    background: var(--anzhiyu-secondbg);
+    border-radius: 4px;
+    padding: 10px;
+    cursor pointer
+    transition: .3s;
+    animation: slide-in 0.6s 0.1s backwards;
+    span.index
+      padding: 4px
+    &:hover
+      color: var(--anzhiyu-white);
+      background: var(--anzhiyu-theme);
+      a
+        color: var(--anzhiyu-white);
+
++maxWidth768()
+  .ai-btn-box
+    justify-content: center;
+  .ai-recommend .ai-recommend-item
+    width: 100%;

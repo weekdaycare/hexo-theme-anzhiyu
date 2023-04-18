@@ -31,7 +31,7 @@
   --card-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, .05)
   --card-hover-box-shadow: 0 3px 8px 6px rgba(7, 17, 27, .09)
   --pseudo-hover: $pseudo-hover
-  --headline-presudo: #a0a0a0
+  --headline-presudo: var(--anzhiyu-fontcolor)
   --scrollbar-color: $scrollbar-color
 
 body
@@ -114,10 +114,13 @@ hr
       z-index: 1
       color: var(--hr-before-color)
       content: $hr-icon
-      font-size: 20px
+      font-size: 16px
       line-height: 1
       transition: all 1s ease-in-out
-      @extend .fontawesomeIcon
+      if hexo-config('icons.fontawesome')
+        @extend .fontawesomeIcon
+      else
+        @extend .anzhiyufont
 
 .table-wrap
   overflow-x: scroll
