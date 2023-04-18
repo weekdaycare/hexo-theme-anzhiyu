@@ -1,4 +1,4 @@
-#article-container
+#content-inner
   figure.gallery-group
     position: relative
     float: left
@@ -109,7 +109,8 @@
           display: inline-block
 
       .gallery-data
-        display: none
+        opacity 0
+        visibility hidden
 
     button
       display: none
@@ -127,13 +128,12 @@
         transition: all .4s
 
       i
-        width: 0
-        opacity: 0
+        opacity: 1
+        font-size: 1.1rem
+
 
       &:hover
         background: var(--btn-hover-color)
 
         i
           margin-left: 2px
-          width: 20px
-          opacity: 1
