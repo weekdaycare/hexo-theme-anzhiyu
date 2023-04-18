@@ -3,7 +3,7 @@
   --anzhiyu-deep-purple: #405589;
   --anzhiyu-meta-theme-color: #f7f9fe;
   --anzhiyu-meta-theme-post-color: #f7f9fe;
-  --anzhiyu-bar-background: var(--anzhiyu-main);
+  --anzhiyu-bar-background: var(--anzhiyu-theme);
   --anzhiyu-theme-op: #4259ef23;
   --anzhiyu-card-bg-none: rgba(255, 255, 255, 0);
   --anzhiyu-main-op-deep: var(--anzhiyu-theme-op-deep) !important;
@@ -41,7 +41,7 @@
   --style-border-always: 1px solid var(--anzhiyu-card-border);
   --style-border-none: 1px solid transparent;
   --style-border-deep-ash: 1px solid #d0d7de;
-  --style-border-hover-always: 1px solid var(--anzhiyu-main);
+  --style-border-hover-always: 1px solid var(--anzhiyu-theme);
   --anzhiyu-main-none: #b8b8b800 !important;
 }
 
@@ -65,7 +65,7 @@
   --anzhiyu-maskbgdeep: rgba(255, 255, 255, 0.85);
   --anzhiyu-hovertext: #616161;
   --anzhiyu-ahoverbg: #f7f7fa;
-  --anzhiyu-lighttext: var(--anzhiyu-main);
+  --anzhiyu-lighttext: var(--anzhiyu-theme);
   --anzhiyu-secondtext: rgba(60, 60, 67, 0.6);
   --anzhiyu-scrollbar: rgba(60, 60, 67, 0.4);
   --anzhiyu-card-btn-bg: #edf0f7;
@@ -100,7 +100,7 @@
   --anzhiyu-maskbgdeep: rgba(0, 0, 0, 0.85);
   --anzhiyu-hovertext: #616161;
   --anzhiyu-ahoverbg: #fff;
-  --anzhiyu-lighttext: #f2b94b;
+  --anzhiyu-lighttext: var(--anzhiyu-theme);
   --anzhiyu-secondtext: #a1a2b8;
   --anzhiyu-scrollbar: rgba(200, 200, 223, 0.4);
   --anzhiyu-card-btn-bg: #30343f;
