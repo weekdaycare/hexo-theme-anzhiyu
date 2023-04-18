@@ -25,21 +25,28 @@ if !theme.disable_top_img && page.top_img !== false
   .post-tools-left
     if theme.reward.enable && theme.reward.QR_code
         !=partial('includes/post/reward', {}, {cache: true})
-    .reward-link.mode
-      a.reward-link-button(href='/wechat/' data-pjax-state='')
-        i.anzhiyufont.anzhiyu-icon-plant-fill
-        | 运营模式与责任
+    .share-link.pagination
+      if is_post()
+        - let prev = theme.post_pagination === 1 ? page.prev : page.next
+        - let next = theme.post_pagination === 1 ? page.next : page.prev
+        if(prev)
+          - var hasPageNext = next ? 'pull-left' : 'pull-full'
+          a.share-pagination(href=url_for(prev.path) data-pjax-state='')
+            i.anzhiyufont.anzhiyu-icon-chevron-left
+            | 上一篇
+        if(next)
+          - var hasPagePrev = prev ? 'pull-right' : 'pull-full'
+          a.share-pagination(href=url_for(next.path) data-pjax-state='')
+            | 下一篇
+            i.anzhiyufont.anzhiyu-icon-chevron-right
     .share-link.mobile
       .share-qrcode
-        .share-button(title='使用手机访问这篇文章')
+        .share-button(title='扫码访问这篇文章')
           i.anzhiyufont.anzhiyu-icon-qrcode
         .share-main
           .share-main-all
             #qrcode(title=url)
-            .reward-dec 使用手机访问这篇文章
-    .share-link.weibo
-      a.share-button(target='_blank' href=`https://service.weibo.com/share/share.php?title=${site_title}&url=${url}&pic=${bg_img}` rel='external nofollow noreferrer noopener')
-        i.anzhiyufont.anzhiyu-icon-weibo
+            .reward-dec 扫码访问这篇文章
     .share-link.copyurl
       #post-share-url.share-button(title='复制链接' onclick='rm.copyPageUrl()')
         i.anzhiyufont.anzhiyu-icon-link

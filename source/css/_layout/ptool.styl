@@ -10,14 +10,19 @@
     display: flex;
     text-overflow: ellipsis;
     flex-wrap: wrap;
-    margin-bottom: 0.5rem;
+    align-items: center;
+    +maxWidth360()
+      margin-top: 1rem;
+      justify-content: center;
+      width: 100%;
+      > div
+        margin: 8px;
   .post-tools-right
     overflow: scroll;
     overflow-x: overlay;
     padding-right: 0px;
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
     
 .share-link
   margin-left: 0.5rem;
@@ -35,6 +40,26 @@
       opacity: 1;
       transform: translateY(0);
 
+  .share-pagination
+    background: var(--anzhiyu-card-bg);
+    border: var(--style-border);
+    color: var(--anzhiyu-fontcolor);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 95px;
+    height: 40px;
+    margin-left: 0.5rem
+    &:hover
+      background: var(--anzhiyu-theme);
+      border-color: var(--anzhiyu-theme);
+      color: var(--anzhiyu-white);
+      transition: 0.3s;
+      box-shadow: var(--anzhiyu-shadow-blue);
+
+    i
+      line-height: 38px;
+      font-size: 1.1rem;
 
   .share-qrcode
     display: flex;
