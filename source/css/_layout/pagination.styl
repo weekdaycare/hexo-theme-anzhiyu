@@ -1,7 +1,20 @@
 #pagination
+  .toPageGroup
+    display: flex;
+    position: relative;
+    margin: 0;
+    box-shadow: none;
+    width: auto;
+    &:hover 
+      background: none;
   .pagination
-    margin-top: 20px
     text-align: center
+    .extend.next 
+      .pagination_tips_next
+        margin-left: -32px;
+        transition: 0.3s;
+        opacity: 0;
+
 
   .page-number
     &.current
@@ -20,17 +33,13 @@
     .pagination
       & > *
         display: inline-block
-        margin: 0 6px
         width: w = 2.5em
         height: w
         line-height: w
 
       & > *:not(.space)
         @extend .cardHover
-
-        &:hover
-          background: var(--btn-hover-color)
-          color: var(--btn-color)
+        transition: 0s;
 
   & > div:not(.recent-posts)
     .pagination
