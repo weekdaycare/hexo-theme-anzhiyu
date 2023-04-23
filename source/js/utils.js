@@ -403,32 +403,7 @@ const anzhiyu = {
     }
     rm.hideRightMenu();
   },
-  // 初始化即刻
-  initIndexEssay: function () {
-    if (!document.querySelector(".essay_bar_swiper_container")) return;
-    setTimeout(() => {
-      let essay_bar_swiper = new Swiper(".essay_bar_swiper_container", {
-        passiveListeners: true,
-        direction: "vertical",
-        loop: true,
-        autoplay: {
-          disableOnInteraction: true,
-          delay: 3000,
-        },
-        mousewheel: true,
-      });
 
-      let essay_bar_comtainer = document.getElementById("bbtalk");
-      if (essay_bar_comtainer !== null) {
-        essay_bar_comtainer.onmouseenter = function () {
-          essay_bar_swiper.autoplay.stop();
-        };
-        essay_bar_comtainer.onmouseleave = function () {
-          essay_bar_swiper.autoplay.start();
-        };
-      }
-    }, 100);
-  },
   // 修改时间显示"最近"
   diffDate: function (d, more = false) {
     const dateNow = new Date();
@@ -462,15 +437,7 @@ const anzhiyu = {
     }
     return result;
   },
-  // 修改即刻中的时间显示
-  changeTimeInEssay: function () {
-    document.querySelector("#bber") &&
-      document.querySelectorAll("#bber time").forEach(function (e) {
-        var t = e,
-          datetime = t.getAttribute("datetime");
-        (t.innerText = anzhiyu.diffDate(datetime, true)), (t.style.display = "inline");
-      });
-  },
+
   // 修改相册集中的时间
   changeTimeInAlbumDetail: function () {
     document.querySelector("#album_detail") &&

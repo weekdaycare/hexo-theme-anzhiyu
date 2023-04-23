@@ -219,7 +219,7 @@ div#bannerGroup {
   .swiper_container_card {
     display: flex;
     flex-direction: row !important;
-    justify-content: flex-start !important;
+    justify-content: center !important;
     flex-wrap: nowrap;
     width: 100%;
     overflow-x: scroll;
