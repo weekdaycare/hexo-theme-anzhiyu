@@ -17,6 +17,7 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
         include ./header/index.pug
         if (is_home())
           include ./bbTimeList.pug
+          script(src=`${url_for('/asset/js/bb.js')}`)
         if is_current("/")
           include ./top/top.pug
 

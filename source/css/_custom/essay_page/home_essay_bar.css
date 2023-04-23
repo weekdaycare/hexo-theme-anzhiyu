@@ -5,7 +5,7 @@ div#main_top {
     max-width: 1400px;
     margin: auto;
     width: 100%;
-    padding: 0 15px;
+    padding: 15px 15px 0 15px;
 }
 
 @media screen and (min-width: 2000px) {
@@ -17,7 +17,7 @@ div#main_top {
 #bber-talk {
     border-radius: 10px;
     box-shadow: none;
-    border: 1px solid #e0e3ed;
+    border: 1px solid var(--anzhiyu-card-border);
     box-sizing: border-box;
     transition: all .3s ease-in-out;
     cursor: pointer;
