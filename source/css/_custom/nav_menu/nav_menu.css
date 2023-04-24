@@ -545,9 +545,6 @@ center#name-container {
   #menus {
     padding: 20px;
   }
-  #page-header.not-top-img {
-    margin-bottom: 10px;
-  }
   #nav {
     border-bottom: none;
     backdrop-filter: none;
