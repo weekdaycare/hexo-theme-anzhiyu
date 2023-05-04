@@ -65,7 +65,8 @@ body[data-type="about"] #web_bg {
   color: var(--anzhiyu-white);
   background: linear-gradient(120deg, #5b27ff 0, #00d4ff 100%);
   background-size: 200%;
-  animation: gradient 15s ease infinite;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
   width: 59%;
 }
 
@@ -300,7 +301,9 @@ body[data-type="about"] #web_bg {
   display: block;
   margin: 0 auto 20px;
   max-width: 100%;
+  transition: -webkit-filter 375ms ease-in 0.2s;
   transition: filter 375ms ease-in 0.2s;
+  transition: filter 375ms ease-in 0.2s, -webkit-filter 375ms ease-in 0.2s;
 }
 .author-content-item.personalities:hover .image {
   transform: rotate(-10deg);
@@ -318,9 +321,11 @@ body[data-type="about"] #web_bg {
 .author-content-item.myphoto img {
   position: absolute;
   min-width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: 0.6s;
-  animation: coverIn 2s ease-out forwards;
+  -webkit-animation: coverIn 2s ease-out forwards;
+          animation: coverIn 2s ease-out forwards;
   transition: transform 2s ease-out !important;
 }
 .author-content-item.myphoto:hover img {
@@ -455,8 +460,11 @@ body[data-type="about"] #web_bg {
   background: linear-gradient(120deg, #ff27e8 0, #ff8000 100%);
   color: var(--anzhiyu-white);
   background-size: 200%;
-  animation: gradient 15s ease infinite;
+  -webkit-animation: gradient 15s ease infinite;
+          animation: gradient 15s ease infinite;
   min-height: 200px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   width: 59%;
 }
@@ -560,7 +568,8 @@ body[data-type="about"] #web_bg {
   left: -50%;
   height: 100%;
   transform: skew(10deg, 0deg);
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: scale 0.2s, all 0.8s;
 }
 .author-content-item.comic-content .comic-item .comic-item-cover img {
@@ -657,11 +666,7 @@ body[data-type="about"] #web_bg {
   .reward-list-item {
     width: 100% !important;
   }
-  .layout > div:first-child:not(.recent-posts) {
-    padding: 1rem 1rem !important;
-    box-shadow: none !important;
-    background: var(--anzhiyu-background);
-  }
+
   .author-content-item .card-content .banner-button-group .banner-button-text {
     display: none;
   }
@@ -701,57 +706,6 @@ body[data-type="about"] #web_bg {
   .author-content-item.like-music .content-bottom .tips {
     display: none;
   }
-}
-
-/* 赞赏的css */
-
-.reward-list-all {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  margin-left: -0.25rem;
-  margin-right: -0.25rem;
-}
-
-.reward-list-item {
-  padding: 1rem;
-  border-radius: 12px;
-  border: var(--style-border-always);
-  width: calc((100% / 3) - 0.5rem);
-  margin: 0 0.25rem 0.5rem 0.25rem;
-  box-shadow: var(--anzhiyu-shadow-border);
-}
-
-.reward-list-item .reward-list-item-name {
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-
-.reward-list-item .reward-list-bottom-group {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.reward-list-item .reward-list-item-money {
-  padding: 4px;
-  background: var(--font-color);
-  color: var(--card-bg);
-  font-size: 12px;
-  line-height: 1;
-  border-radius: 4px;
-  margin-right: 4px;
-  white-space: nowrap;
-}
-
-.reward-list-item .reward-list-item-time {
-  font-size: 12px;
-  color: var(--anzhiyu-secondtext);
-  white-space: nowrap;
 }
 
 /* 技能 */
