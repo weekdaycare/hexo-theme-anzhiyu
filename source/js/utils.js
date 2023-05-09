@@ -491,7 +491,7 @@ const anzhiyu = {
   },
   //友链随机传送
   travelling() {
-    var fetchUrl = "https://friends.anzhiy.cn/randomfriend";
+    var fetchUrl = GLOBAL_CONFIG.friends_vue_info.apiurl + "randomfriend";
     fetch(fetchUrl)
       .then(res => res.json())
       .then(json => {
@@ -593,6 +593,11 @@ const anzhiyu = {
     consoleEl.classList.add("reward-show");
     anzhiyu.initConsoleState();
   },
+  // 显示中控台
+  showConsole: function () {
+    document.querySelector("#console").classList.add("show");
+    anzhiyu.initConsoleState();
+  },
 
   //隐藏中控台
   hideConsole: function () {
@@ -603,6 +608,10 @@ const anzhiyu = {
       // 如果是打赏控制台，就关闭打赏控制台
       consoleEl.classList.remove("reward-show");
     }
+  },
+  // 取消加载动画
+  hideLoading: function () {
+    document.getElementById("loading-box").classList.add("loaded");
   },
   // 将音乐缓存播放
   cacheAndPlayMusic() {
@@ -1023,5 +1032,51 @@ const anzhiyu = {
     if (!document.querySelector(".reward-main")) return;
     document.querySelector(".reward-main").style.display = "none";
     document.getElementById("quit-box").style.display = "none";
+  },
+
+  keyboardToggle: function () {
+    const isKeyboardOn = anzhiyu_keyboard;
+
+    if (isKeyboardOn) {
+      const consoleKeyboard = document.querySelector("#consoleKeyboard");
+      consoleKeyboard.classList.remove("on");
+      anzhiyu_keyboard = false;
+    } else {
+      const consoleKeyboard = document.querySelector("#consoleKeyboard");
+      consoleKeyboard.classList.add("on");
+      anzhiyu_keyboard = true;
+    }
+
+    localStorage.setItem("keyboardToggle", isKeyboardOn ? "false" : "true");
+  },
+  rightMenuToggle: function () {
+    if (window.oncontextmenu) {
+      window.oncontextmenu = null;
+    } else if (!window.oncontextmenu && oncontextmenuFunction) {
+      window.oncontextmenu = oncontextmenuFunction;
+    }
+  },
+  // 定义 intersectionObserver 函数，并接收两个可选参数
+  intersectionObserver: function (enterCallback, leaveCallback) {
+    let observer;
+    let isIntersected = false; // 增加一个状态变量，用于判断是否已经观察到过目标元素
+    return () => {
+      if (!observer) {
+        observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.intersectionRatio > 0 && !isIntersected) {
+              enterCallback?.();
+              isIntersected = true; // 设置状态变量为 true，表示已经观察到过目标元素
+            } else {
+              leaveCallback?.();
+            }
+          });
+        });
+      } else {
+        // 如果 observer 对象已经存在，则先取消对之前元素的观察
+        observer.disconnect();
+      }
+      return observer;
+    };
   },
 };
