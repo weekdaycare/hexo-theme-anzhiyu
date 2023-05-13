@@ -2,12 +2,14 @@ script.
   // 初始化函数
   let rm = {};
 
-  //禁止图片拖拽
-  let imgElements = document.getElementsByTagName("img");
-  for (let i = 0; i < imgElements.length; i++) {
-    imgElements[i].addEventListener("dragstart", function (event) {
-      event.preventDefault();
-    });
+  //禁止图片与超链接拖拽
+  let aElements = document.getElementsByTagName("a");
+  for (let i = 0; i < aElements.length; i++) {
+    aElements[i].setAttribute("draggable", "false");
+    let imgElements = aElements[i].getElementsByTagName("img");
+    for (let j = 0; j < imgElements.length; j++) {
+      imgElements[j].setAttribute("draggable", "false");
+    }
   }
 
   // 显示菜单
@@ -219,26 +221,6 @@ script.
     navigator.clipboard.write([item]);
   }
 
-  rm.switchDarkMode = function () {
-    // Switch Between Light And Dark Mode
-    const nowMode = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-    if (nowMode === "light") {
-      activateDarkMode();
-      saveToLocal.set("theme", "dark", 2);
-      GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night);
-      document.querySelector(".menu-darkmode-text").textContent = "浅色模式";
-    } else {
-      activateLightMode();
-      saveToLocal.set("theme", "light", 2);
-      GLOBAL_CONFIG.Snackbar !== undefined && anzhiyu.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day);
-      document.querySelector(".menu-darkmode-text").textContent = "深色模式";
-    }
-    // handle some cases
-    typeof runMermaid === "function" && window.runMermaid();
-    rm.hideRightMenu();
-    anzhiyu.darkModeStatus();
-  };
-
   rm.copyUrl = function (id) {
     const input = document.createElement("input"); // Create a new <input> element
     input.id = "copyVal"; // Set the id of the new element to "copyVal"
@@ -424,7 +406,7 @@ script.
       link.addEventListener("click", rm.hideRightMenu);
     });
 
-    document.getElementById("menu-darkmode").addEventListener("click", rm.switchDarkMode);
+    document.getElementById("menu-darkmode").addEventListener("click", anzhiyu.switchDarkMode);
 
     document.getElementById("menu-home") && document.getElementById("menu-home").addEventListener("click", function () {
       window.location.href = window.location.origin;
