@@ -15,6 +15,7 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
         #menu-mask
         if page.type !== '404'
           #body-wrap(class=pageType)
+            include ./header/index.pug
             if (is_home())
               include ./bbTimeList.pug
             if is_current("/")
