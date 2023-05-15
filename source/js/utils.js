@@ -327,8 +327,8 @@ const anzhiyu = {
     var scrollTop = 0,
       bodyScrollTop = 0,
       documentScrollTop = 0;
-    if (document.body) {
-      bodyScrollTop = document.body.scrollTop;
+    if ($bodyWrap) {
+      bodyScrollTop = $bodyWrap.scrollTop;
     }
     if (document.documentElement) {
       documentScrollTop = document.documentElement.scrollTop;
@@ -702,6 +702,7 @@ const anzhiyu = {
       // player listswitch 会进入此处
       const musiccover = document.querySelector("#anMusic-page .aplayer-pic");
       anMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
+      $web_container.style.background = "none";
     } else {
       // 第一次进入，绑定事件，改背景
       let timer = setInterval(() => {
@@ -775,7 +776,10 @@ const anzhiyu = {
     });
 
     document.getElementById("menu-mask").addEventListener("click", function () {
-      if (window.location.pathname != "/music/") return;
+      if (window.location.pathname != "/music/") {
+        $web_container.style.background = "var(--global-bg)";
+        return;
+      }
       anMusicPage.querySelector(".aplayer-list").classList.remove("aplayer-list-hide");
     });
 
@@ -899,8 +903,7 @@ const anzhiyu = {
 
   //删除多余的class
   removeBodyPaceClass: function () {
-    var body = document.querySelector("body");
-    body.className = "pace-done";
+    document.body.className = "pace-done";
   },
   // 修改body的type类型以适配css
   setValueToBodyType: function () {
@@ -1079,14 +1082,12 @@ const anzhiyu = {
   // 定义 intersectionObserver 函数，并接收两个可选参数
   intersectionObserver: function (enterCallback, leaveCallback) {
     let observer;
-    let isIntersected = false; // 增加一个状态变量，用于判断是否已经观察到过目标元素
     return () => {
       if (!observer) {
         observer = new IntersectionObserver(entries => {
           entries.forEach(entry => {
-            if (entry.intersectionRatio > 0 && !isIntersected) {
+            if (entry.intersectionRatio > 0) {
               enterCallback?.();
-              isIntersected = true; // 设置状态变量为 true，表示已经观察到过目标元素
             } else {
               leaveCallback?.();
             }
@@ -1127,5 +1128,32 @@ const anzhiyu = {
     } else {
       console.error("Element(s) not found: 'catalog-list' and/or 'category-bar-next'.");
     }
+  },
+  // 分类条
+  categoriesBarActive: function () {
+    const urlinfo = decodeURIComponent(window.location.pathname);
+    const $categoryBar = document.getElementById("category-bar");
+    if (!$categoryBar) return;
+
+    if (urlinfo === "/") {
+      $categoryBar.querySelector("#首页").classList.add("select");
+    } else {
+      const pattern = /\/categories\/.*?\//;
+      const patbool = pattern.test(urlinfo);
+      if (!patbool) return;
+
+      const nowCategorie = urlinfo.split("/")[2];
+      $categoryBar.querySelector(`#${nowCategorie}`).classList.add("select");
+    }
+  },
+  topCategoriesBarScroll: function () {
+    const $categoryBarItems = document.getElementById("category-bar-items");
+    if (!$categoryBarItems) return;
+
+    $categoryBarItems.addEventListener("mousewheel", function (e) {
+      const v = -e.wheelDelta / 2;
+      this.scrollLeft += v;
+      e.preventDefault();
+    });
   },
 };

@@ -4,7 +4,7 @@
   display: flex;
   border: var(--anzhiyu-border-radius);
   margin-bottom: 1rem;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -21,6 +21,7 @@
   display: flex;
   white-space: nowrap;
   overflow-x: scroll;
+  margin-left: 10px;
 }
 
 #catalog-list::-webkit-scrollbar {
