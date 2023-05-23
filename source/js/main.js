@@ -180,6 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebarFn = {
     open: () => {
       anzhiyu.sidebarPaddingR();
+      anzhiyu.changeThemeColor("#607d8b");
       anzhiyu.animateIn(document.getElementById("menu-mask"), "to_show 0.5s");
       $sidebarMenus.classList.add("open");
       $web_box.classList.add("open");
@@ -197,6 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     close: () => {
       const $body = document.body;
+      anzhiyu.initThemeColor();
       $body.style.paddingRight = "";
       anzhiyu.animateOut(document.getElementById("menu-mask"), "to_hide 0.5s");
       $sidebarMenus.classList.remove("open");
@@ -652,24 +654,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 96);
 
     // 进入footer隐藏音乐
-    anzhiyu
-      .intersectionObserver(
-        () => {
-          // console.log(1);
-          if (footerDom && musicDom && 768 < document.body.clientWidth) {
-            musicDom.style.bottom = "-10px";
-            musicDom.style.opacity = "0";
+    if (footerDom) {
+      anzhiyu
+        .intersectionObserver(
+          () => {
+            if (footerDom && musicDom && 768 < document.body.clientWidth) {
+              musicDom.style.bottom = "-10px";
+              musicDom.style.opacity = "0";
+            }
+            scrollBottomFirstFlag = true;
+          },
+          () => {
+            if (footerDom && musicDom && 768 < document.body.clientWidth) {
+              musicDom.style.bottom = "20px";
+              musicDom.style.opacity = "1";
+            }
           }
-          scrollBottomFirstFlag = true;
-        },
-        () => {
-          if (footerDom && musicDom && 768 < document.body.clientWidth) {
-            musicDom.style.bottom = "20px";
-            musicDom.style.opacity = "1";
-          }
-        }
-      )()
-      .observe(footerDom);
+        )()
+        .observe(footerDom);
+    }
 
     window.scrollCollect = scroolTask;
     window.addEventListener("scroll", scrollCollect);
