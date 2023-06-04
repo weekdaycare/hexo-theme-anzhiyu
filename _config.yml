@@ -57,7 +57,7 @@ copy:
 
 # social settings (社交图标设置)
 # formal:
-#   icon: link || the description || Animation
+#   name: link || icon
 social:
   # Github: https://github.com/anzhiyu-c || anzhiyu-icon-github
   # Email: https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2268025923@qq.com || anzhiyu-icon-envelope
@@ -546,6 +546,7 @@ site_verification:
 
 theme_color:
   enable: true
+  cover_change: false
   main: "#3b70fc"
   dark_main: "#0084ff"
   paginator: "#3b70fc"
@@ -987,7 +988,7 @@ home_top:
 # 朋友圈配置
 friends_vue:
   enable: false
-  vue_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.8/friends/index.804b9513.js
+  vue_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.1.1/friends/index.4f887d95.js
   apiurl: # 朋友圈后端地址
   top_background:
 
