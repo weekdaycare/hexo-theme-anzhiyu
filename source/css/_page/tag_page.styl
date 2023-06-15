@@ -123,10 +123,9 @@ span.categoryes-punctuation .icon-biaoqian
   color: #fff
 
 .post-meta__box__tag-list a:hover
-  background-color: #1b1b1b
+  background-color: var(--anzhiyu-main)
   color: #fff
 [data-theme="dark"] .post-meta__box__tag-list a:hover
-  background-color: var(--anzhiyu-main)
   color: #fff
 /* 文章分类颜色背景 */
 .post-meta__box__category-list a:nth-child(5n)
@@ -152,6 +151,15 @@ span.categoryes-punctuation .icon-biaoqian
 
 
 body[data-type="tags"]
+  #page
+    border-radius: 12px
+    +maxWidth768()
+      #tag
+        padding: 0px 15px 20px
+      .page-title 
+        margin: 8px 0 0px
+  #body-wrap .layout
+    padding: 20px 15px
   #tag #tag-page-tags
     justify-content: center;
     a

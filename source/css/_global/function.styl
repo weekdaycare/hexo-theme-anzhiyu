@@ -30,6 +30,13 @@ if hexo-config('icons.fontawesome')
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+.anzhiyufont::before
+  font-family: "anzhiyufont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
 // card hover
 .cardHover
   border-radius: 8px
@@ -132,6 +139,7 @@ minWidth2000()
   animation: scroll-down-effect 1.5s infinite
 
 .anzhiyu-spin
+  display: inline-block
   transform-origin: 50% 50%;
   animation-name: anzhiyu-spin;
   animation-duration: var(--anzhiyu-animation-duration,2s);

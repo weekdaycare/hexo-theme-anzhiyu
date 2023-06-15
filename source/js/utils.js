@@ -1160,4 +1160,14 @@ const anzhiyu = {
       e.preventDefault();
     });
   },
+  // 切换菜单显示热评
+  switchRightClickMenuHotReview: function () {
+    const postComment = document.getElementById("post-comment")
+    const menuCommentBarrageDom = document.getElementById("menu-commentBarrage")
+    if (postComment) {
+      menuCommentBarrageDom.style.display = "flex"
+    } else {
+      menuCommentBarrageDom.style.display = "none"
+    }
+  }
 };
